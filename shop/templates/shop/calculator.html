@@ -1,0 +1,42 @@
+{% extends 'shop/basic.html' %}
+
+{% block body %}
+<div class="container">
+  <form method="POST">
+  
+  
+  {% csrf_token %}
+  <fieldset>
+    <h2 style="text-align: center;">Here is a calculator for your help!!!</h2>
+    <legend style="text-align: center;">Calculate Your Amount</legend>
+    {% if error %}
+    <div class="alert alert-danger my-3" role="alert">
+      Please fill the below blocks first
+    </div>
+    {% endif %}
+      <div class="mb-3">
+        <label for="num1" class="form-label">Number - 1st</label>
+        <input type="text" id="num1" name="num1" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="opr" class="form-label">Operations</label>
+        <select id="opr" class="form-selectvform-control" name="opr">
+          <option>+</option>
+          <option>-</option>
+          <option>*</option>
+          <option>/</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="num1" class="form-label">Number - 2nd</label>
+        <input type="text" id="num2" name="num2" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Calculate</button>
+      <div class="mb-3 my-3">
+        <input type="text" value="{{c}}" class="form-control">
+      </div>
+    </fieldset>
+  </form>
+</div>
+    
+  {% endblock body %}
